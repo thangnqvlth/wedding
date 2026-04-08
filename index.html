@@ -283,22 +283,22 @@ Xem thêm ảnh
 <!-- Countdown Section -->
 <section class="py-24 bg-surface-container-highest/30 relative">
 <div class="max-w-4xl mx-auto px-6 text-center">
-<h2 class="text-3xl text-primary font-headline italic mb-12">Đếm ngược ngày chung đôi</h2>
+<h2 class="text-3xl text-primary font-headline italic mb-12" id="countdown-title">Đếm ngược ngày chung đôi</h2>
 <div class="grid grid-cols-4 gap-4 md:gap-8">
 <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm">
-<span class="block text-4xl md:text-5xl text-primary font-headline italic">120</span>
+<span class="block text-4xl md:text-5xl text-primary font-headline italic" id="countdown-days">00</span>
 <span class="text-[10px] uppercase tracking-widest text-outline">Ngày</span>
 </div>
 <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm">
-<span class="block text-4xl md:text-5xl text-primary font-headline italic">18</span>
+<span class="block text-4xl md:text-5xl text-primary font-headline italic" id="countdown-hours">00</span>
 <span class="text-[10px] uppercase tracking-widest text-outline">Giờ</span>
 </div>
 <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm">
-<span class="block text-4xl md:text-5xl text-primary font-headline italic">45</span>
+<span class="block text-4xl md:text-5xl text-primary font-headline italic" id="countdown-minutes">00</span>
 <span class="text-[10px] uppercase tracking-widest text-outline">Phút</span>
 </div>
 <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm">
-<span class="block text-4xl md:text-5xl text-primary font-headline italic">30</span>
+<span class="block text-4xl md:text-5xl text-primary font-headline italic" id="countdown-seconds">00</span>
 <span class="text-[10px] uppercase tracking-widest text-outline">Giây</span>
 </div>
 </div>
@@ -414,6 +414,39 @@ Mở Google Maps
 </div>
 </nav>
 <script>
+  const weddingCountdownElements = {
+    title: document.getElementById("countdown-title"),
+    days: document.getElementById("countdown-days"),
+    hours: document.getElementById("countdown-hours"),
+    minutes: document.getElementById("countdown-minutes"),
+    seconds: document.getElementById("countdown-seconds")
+  };
+  const weddingTargetTime = new Date("2026-05-10T10:30:00+07:00").getTime();
+
+  const updateWeddingCountdown = () => {
+    if (!weddingCountdownElements.title || !weddingCountdownElements.days || !weddingCountdownElements.hours || !weddingCountdownElements.minutes || !weddingCountdownElements.seconds) {
+      return;
+    }
+
+    const now = Date.now();
+    const rawDistance = weddingTargetTime - now;
+    const distance = Math.max(0, rawDistance);
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    weddingCountdownElements.days.textContent = String(days).padStart(2, "0");
+    weddingCountdownElements.hours.textContent = String(hours).padStart(2, "0");
+    weddingCountdownElements.minutes.textContent = String(minutes).padStart(2, "0");
+    weddingCountdownElements.seconds.textContent = String(seconds).padStart(2, "0");
+    weddingCountdownElements.title.textContent = rawDistance <= 0 ? "Hôm nay là ngày trọng đại!" : "Đếm ngược ngày chung đôi";
+  };
+
+  updateWeddingCountdown();
+  setInterval(updateWeddingCountdown, 1000);
+
   const rsvpForm = document.getElementById("rsvp-form");
   const rsvpMessage = document.getElementById("rsvp-message");
   const submitButton = rsvpForm?.querySelector('button[type="submit"]');
