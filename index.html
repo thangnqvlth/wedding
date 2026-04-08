@@ -79,6 +79,23 @@
       body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fbf9f5; }
       h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
       .bg-glass { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+      #gallery img {
+        object-fit: cover !important;
+        object-position: center;
+        padding: 0 !important;
+      }
+      #gallery img[src$="BKT08372.jpg"],
+      #gallery img[src$="BKT08445.jpg"],
+      #gallery img[src$="BKT08500.jpg"],
+      #gallery img[src$="BKT08392.jpg"] {
+        object-position: center 18% !important;
+      }
+      #gallery img[src$="BKT08795.jpg"],
+      #gallery img[src$="BKT08952.jpg"],
+      #gallery img[src$="BKT08955.jpg"],
+      #gallery img[src$="BKT08900.jpg"] {
+        object-position: center 25% !important;
+      }
     </style>
 </head>
 <body class="text-on-surface selection:bg-primary-fixed selection:text-primary">
@@ -178,18 +195,18 @@
 <div class="w-24 h-[1px] bg-primary/20"></div>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/main.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08372.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08392.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08445.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08500.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08560.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08626.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08655.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08754.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08795.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08799.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08900.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/main.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08372.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08392.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08445.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08500.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08560.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08626.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08655.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08754.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08795.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08799.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08900.jpg"/></div>
 </div>
 <details class="mt-6 group/details">
 <summary class="cursor-pointer select-none inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-container transition-colors">
@@ -197,17 +214,17 @@
 Xem thêm ảnh
 </summary>
 <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5 mt-4">
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08914.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08920.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08952.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08955.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08959.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08973.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09345.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09369.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09447.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09530.jpg"/></div>
-<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09536.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08914.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08920.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08952.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08955.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08959.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT08973.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09345.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09369.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09447.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09530.jpg"/></div>
+<div class="overflow-hidden rounded-xl shadow-lg group bg-surface-container-lowest"><img class="w-full h-full object-contain object-top aspect-square p-2 transition-transform duration-500 group-hover:scale-105" data-alt="Ảnh cưới của cô dâu chú rể" loading="lazy" src="wedding/BKT09536.jpg"/></div>
 </div>
 </details>
 </div>
@@ -343,9 +360,9 @@ Xem thêm ảnh
 <textarea class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" name="loi_chuc" placeholder="Viết lời chúc của bạn..." rows="3"></textarea>
 </div>
 <input name="_subject" type="hidden" value="Loi chuc moi tu website cuoi"/>
-<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline italic tracking-wide text-lg shadow-lg hover:bg-primary-container transition-all disabled:opacity-60 disabled:cursor-not-allowed" type="submit">Gửi Lời Chúc</button>
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline italic tracking-wide text-lg shadow-lg hover:bg-primary-container transition-all disabled:opacity-60 disabled:cursor-not-allowed" disabled type="submit">Tạm dừng nhận lời chúc</button>
 </form>
-<p class="mt-4 text-xs text-outline">Form đang gửi qua Formspree và sẽ hiển thị thông báo ngay trên trang sau khi gửi.</p>
+<p class="mt-4 text-xs text-outline">Form đang tạm khóa để chạy thử hệ thống vài hôm, sẽ mở lại sớm.</p>
 <p aria-live="polite" class="mt-3 text-sm font-body hidden" id="rsvp-message"></p>
 </div>
 </div>
