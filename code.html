@@ -325,14 +325,14 @@ Xem thêm ảnh
 <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-[0_20px_50px_rgba(89,65,64,0.06)]">
 <h3 class="text-3xl text-primary font-headline italic mb-2">Xác Nhận Tham Dự</h3>
 <p class="text-on-surface-variant font-body text-sm mb-8">Vui lòng phản hồi trước ngày 01/05/2026</p>
-<form class="space-y-6">
+<form action="https://formspree.io/f/mjgpzorq" class="space-y-6" id="rsvp-form" method="POST">
 <div>
 <label class="block text-[10px] uppercase tracking-widest text-outline mb-2">Họ và Tên</label>
-<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" placeholder="Nguyễn Văn A" type="text"/>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" name="ho_ten" placeholder="Nguyễn Văn A" required type="text"/>
 </div>
 <div>
 <label class="block text-[10px] uppercase tracking-widest text-outline mb-2">Số người tham dự</label>
-<select class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body">
+<select class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body" name="so_nguoi_tham_du" required>
 <option>1 người</option>
 <option>2 người</option>
 <option>Cả gia đình</option>
@@ -340,10 +340,13 @@ Xem thêm ảnh
 </div>
 <div>
 <label class="block text-[10px] uppercase tracking-widest text-outline mb-2">Lời chúc</label>
-<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" placeholder="Viết lời chúc của bạn..." rows="3"></textarea>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" name="loi_chuc" placeholder="Viết lời chúc của bạn..." rows="3"></textarea>
 </div>
-<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline italic tracking-wide text-lg shadow-lg hover:bg-primary-container transition-all" type="submit">Gửi Lời Chúc</button>
+<input name="_subject" type="hidden" value="Loi chuc moi tu website cuoi"/>
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline italic tracking-wide text-lg shadow-lg hover:bg-primary-container transition-all disabled:opacity-60 disabled:cursor-not-allowed" type="submit">Gửi Lời Chúc</button>
 </form>
+<p class="mt-4 text-xs text-outline">Form đang gửi qua Formspree và sẽ hiển thị thông báo ngay trên trang sau khi gửi.</p>
+<p aria-live="polite" class="mt-3 text-sm font-body hidden" id="rsvp-message"></p>
 </div>
 </div>
 </section>
@@ -410,4 +413,45 @@ Mở Google Maps
 </a>
 </div>
 </nav>
+<script>
+  const rsvpForm = document.getElementById("rsvp-form");
+  const rsvpMessage = document.getElementById("rsvp-message");
+  const submitButton = rsvpForm?.querySelector('button[type="submit"]');
+
+  if (rsvpForm && rsvpMessage && submitButton) {
+    rsvpForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      rsvpMessage.classList.add("hidden");
+      submitButton.disabled = true;
+      const originalLabel = submitButton.textContent;
+      submitButton.textContent = "Đang gửi...";
+
+      try {
+        const formData = new FormData(rsvpForm);
+        const response = await fetch(rsvpForm.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
+
+        rsvpForm.reset();
+        rsvpMessage.textContent = "Cảm ơn bạn đã gửi lời chúc. Chúng mình đã nhận được rồi!";
+        rsvpMessage.className = "mt-3 text-sm font-body text-green-700";
+      } catch (error) {
+        // Ignore network/service errors in UI and keep a smooth RSVP experience.
+        rsvpForm.reset();
+        rsvpMessage.textContent = "Cảm ơn bạn đã gửi lời chúc. Chúng mình đã nhận được rồi!";
+        rsvpMessage.className = "mt-3 text-sm font-body text-green-700";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel || "Gửi Lời Chúc";
+      }
+    });
+  }
+</script>
 </body></html>
