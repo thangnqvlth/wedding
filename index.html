@@ -3,13 +3,15 @@
 <html class="light" lang="vi"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <!-- Tab icon: .ico for older browsers (stops default globe); SVG for sharp rendering -->
 <link rel="icon" href="favicon.ico" sizes="32x32"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any"/>
 <link rel="shortcut icon" href="favicon.ico"/>
 <meta name="theme-color" content="#640013"/>
 <meta name="msapplication-TileColor" content="#640013"/>
-<link rel="preload" as="image" href="wedding/main.jpg" fetchpriority="high"/>
+<link rel="preload" as="image" href="wedding/main.webp" type="image/webp" fetchpriority="high"/>
 <title>Quyết Thắng &amp; Thùy Linh — Thiệp Mời Cưới</title>
 <meta content="Thiệp mời cưới Quyết Thắng &amp; Thùy Linh. Trân trọng kính mời bạn và gia đình đến chung vui cùng chúng tôi." name="description"/>
 <meta content="website" property="og:type"/>
@@ -24,7 +26,6 @@
 <meta content="https://thangnqvlth.github.io/wedding/main.jpg" name="twitter:image"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -125,6 +126,10 @@
       h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
       .bg-glass { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
       /* Album: on mobile, natural height (full photo). From lg: same-height cards per row (grid row = tallest image was stretching cells and leaving white bands under shorter photos). */
+      .gallery-journey picture {
+        display: block;
+        width: 100%;
+      }
       .gallery-journey img {
         object-fit: contain;
         object-position: center;
@@ -149,23 +154,30 @@
           align-items: stretch;
           overflow: hidden;
         }
-        .gallery-journey .gallery-band .grid > figure > img {
+        .gallery-journey .gallery-band .grid > figure > picture {
+          flex: 1 1 auto;
+          min-height: 0;
+          min-width: 0;
+          display: flex;
+          align-items: stretch;
+        }
+        .gallery-journey .gallery-band .grid > figure > picture > img {
           width: 100%;
           min-height: 0;
           height: 100%;
           object-fit: cover;
           object-position: center;
         }
-        .gallery-journey .gallery-band .grid > figure > img[src$="BKT08372.jpg"],
-        .gallery-journey .gallery-band .grid > figure > img[src$="BKT08445.jpg"],
-        .gallery-journey .gallery-band .grid > figure > img[src$="BKT08500.jpg"],
-        .gallery-journey .gallery-band .grid > figure > img[src$="BKT08392.jpg"] {
+        .gallery-journey .gallery-band .grid > figure > picture > img[src$="BKT08372.jpg"],
+        .gallery-journey .gallery-band .grid > figure > picture > img[src$="BKT08445.jpg"],
+        .gallery-journey .gallery-band .grid > figure > picture > img[src$="BKT08500.jpg"],
+        .gallery-journey .gallery-band .grid > figure > picture > img[src$="BKT08392.jpg"] {
           object-position: center 18%;
         }
-        .gallery-journey .gallery-band .grid > figure > img[src$="BKT08795.jpg"],
-        .gallery-journey .gallery-band .grid > figure > img[src$="BKT08952.jpg"],
-        .gallery-journey .gallery-band .grid > figure > img[src$="BKT08955.jpg"],
-        .gallery-journey .gallery-band .grid > figure > img[src$="BKT08900.jpg"] {
+        .gallery-journey .gallery-band .grid > figure > picture > img[src$="BKT08795.jpg"],
+        .gallery-journey .gallery-band .grid > figure > picture > img[src$="BKT08952.jpg"],
+        .gallery-journey .gallery-band .grid > figure > picture > img[src$="BKT08955.jpg"],
+        .gallery-journey .gallery-band .grid > figure > picture > img[src$="BKT08900.jpg"] {
           object-position: center 25%;
         }
       }
@@ -232,7 +244,10 @@
 <!-- Hero Section -->
 <header class="relative min-h-screen flex flex-col justify-center items-center pt-20 px-6 overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover object-[center_22%] opacity-45 scale-100 md:scale-105" src="wedding/main.jpg" alt="Chân dung cô dâu chú rể" width="3948" height="5922" fetchpriority="high" decoding="async"/>
+<picture class="absolute inset-0 block">
+<source srcset="wedding/main.webp" type="image/webp"/>
+<img class="h-full w-full object-cover object-[center_22%] opacity-45 scale-100 md:scale-105" src="wedding/main.jpg" alt="Chân dung cô dâu chú rể" width="1467" height="2200" fetchpriority="high" decoding="async"/>
+</picture>
 </div>
 <div class="z-10 text-center max-w-4xl mx-auto space-y-8">
 <span class="text-primary-container tracking-[0.3em] font-label text-sm uppercase">The Wedding Celebration</span>
@@ -422,13 +437,19 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
 <figure class="m-0 flex flex-col gap-3">
 <div class="overflow-hidden rounded-2xl bg-white dark:bg-stone-900/50 ring-2 ring-primary/15 shadow-[0_16px_48px_rgba(89,65,64,0.12)]">
-<img class="w-full h-auto block" alt="Ảnh phóng trang trọng — Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/main.jpg"/>
+<picture>
+<source srcset="wedding/main.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh phóng trang trọng — Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/main.jpg" width="1467" height="2200"/>
+</picture>
 </div>
 <p class="text-center text-xs uppercase tracking-[0.2em] text-outline font-body">Nhịp đầu — ánh mở lối</p>
 </figure>
 <figure class="m-0 flex flex-col gap-3">
 <div class="overflow-hidden rounded-2xl bg-white dark:bg-stone-900/50 ring-2 ring-primary/15 shadow-[0_16px_48px_rgba(89,65,64,0.12)]">
-<img class="w-full h-auto block" alt="Ảnh phóng trang trọng — Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08754.jpg"/>
+<picture>
+<source srcset="wedding/BKT08754.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh phóng trang trọng — Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08754.jpg" width="1120" height="1680"/>
+</picture>
 </div>
 <p class="text-center text-xs uppercase tracking-[0.2em] text-outline font-body">Nhịp kế — cùng một lời</p>
 </figure>
@@ -443,13 +464,19 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
 <figure class="m-0 flex flex-col gap-3">
 <div class="overflow-hidden rounded-2xl bg-white/90 dark:bg-stone-900/45 ring-1 ring-primary/[0.08] shadow-[0_12px_36px_rgba(89,65,64,0.09)]">
-<img class="w-full h-auto block scale-125 origin-center" alt="Chân dung cô dâu Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/1799988685358604038.jpg"/>
+<picture>
+<source srcset="wedding/1799988685358604038.webp" type="image/webp"/>
+<img class="w-full h-auto block scale-125 origin-center" alt="Chân dung cô dâu Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/1799988685358604038.jpg" width="1124" height="1680"/>
+</picture>
 </div>
 <figcaption class="text-center text-sm font-headline italic text-primary/85">Cô dâu — Thùy Linh</figcaption>
 </figure>
 <figure class="m-0 flex flex-col gap-3">
 <div class="overflow-hidden rounded-2xl bg-white/90 dark:bg-stone-900/45 ring-1 ring-primary/[0.08] shadow-[0_12px_36px_rgba(89,65,64,0.09)] aspect-[2/3] w-full">
-<img class="h-full w-full object-cover object-[70%_50%] block" alt="Chân dung chú rể Quyết Thắng" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08372.jpg"/>
+<picture class="block h-full w-full">
+<source srcset="wedding/BKT08372.webp" type="image/webp"/>
+<img class="h-full w-full object-cover object-[70%_50%] block" alt="Chân dung chú rể Quyết Thắng" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08372.jpg" width="1120" height="1680"/>
+</picture>
 </div>
 <figcaption class="text-center text-sm font-headline italic text-primary/85">Chú rể — Quyết Thắng</figcaption>
 </figure>
@@ -462,22 +489,28 @@
 <blockquote class="text-center max-w-xl mx-auto mb-10 md:mb-12 px-2 font-headline italic text-primary text-[1.05rem] md:text-xl leading-relaxed">“Đường đời không chỉ rẽ hai hướng, mà là hai người chọn cùng nhau một lối về.”</blockquote>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT09530.jpg"/>
+<picture>
+<source srcset="wedding/BKT09530.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT09530.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08626.jpg"/>
+<picture>
+<source srcset="wedding/BKT08626.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08626.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08560.jpg"/>
+<picture>
+<source srcset="wedding/BKT08560.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08560.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT09536.jpg"/>
-</figure>
-<figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT09345.jpg"/>
-</figure>
-<figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT09447.jpg"/>
+<picture>
+<source srcset="wedding/BKT09536.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT09536.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 </div>
 </div>
@@ -487,7 +520,10 @@
 <p class="text-center text-[10px] md:text-xs uppercase tracking-[0.35em] text-primary/75 mb-4 font-medium">Tinh nghịch</p>
 <blockquote class="text-center font-headline italic text-primary text-[1.05rem] md:text-xl leading-relaxed mb-10 md:mb-12 max-w-2xl mx-auto px-2 text-balance">“Hai người, một mái nhà, một giấc mơ, một đời...”</blockquote>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/90 dark:bg-stone-900/50 ring-1 ring-primary/[0.09] shadow-[0_14px_44px_rgba(89,65,64,0.1)]">
-<img class="w-full h-auto block" alt="Cô dâu và chú rể tạo dáng nghịch ngợm trong ảnh cưới" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08655.jpg"/>
+<picture>
+<source srcset="wedding/BKT08655.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Cô dâu và chú rể tạo dáng nghịch ngợm trong ảnh cưới" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08655.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 </div>
 </div>
@@ -497,7 +533,10 @@
 <p class="text-center text-[10px] md:text-xs uppercase tracking-[0.35em] text-primary/75 mb-4 font-medium">Chân dung</p>
 <blockquote class="text-center font-headline italic text-primary text-[1.05rem] md:text-xl leading-relaxed mb-10 md:mb-12 max-w-2xl mx-auto px-2 text-balance">“Cô dâu nhà ai mà xinh thếeeeeeeee”</blockquote>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/90 dark:bg-stone-900/50 ring-1 ring-primary/[0.09] shadow-[0_14px_44px_rgba(89,65,64,0.1)]">
-<img class="w-full h-auto block" alt="Chân dung cô dâu Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT09369.jpg"/>
+<picture>
+<source srcset="wedding/BKT09369.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Chân dung cô dâu Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT09369.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 </div>
 </div>
@@ -507,19 +546,28 @@
 <blockquote class="text-center max-w-xl mx-auto mb-10 md:mb-12 px-2 font-headline italic text-primary text-[1.05rem] md:text-xl leading-relaxed">“Một cái gật đầu, đổi lấy cả đời bên nhau”</blockquote>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08955.jpg"/>
+<picture>
+<source srcset="wedding/BKT08955.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08955.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08920.jpg"/>
+<picture>
+<source srcset="wedding/BKT08920.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08920.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08914.jpg"/>
+<picture>
+<source srcset="wedding/BKT08914.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08914.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08952.jpg"/>
-</figure>
-<figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08973.jpg"/>
+<picture>
+<source srcset="wedding/BKT08952.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08952.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 </div>
 </div>
@@ -529,7 +577,10 @@
 <p class="text-center text-[10px] md:text-xs uppercase tracking-[0.35em] text-primary/75 mb-4 font-medium">Trái tim &amp; nhẫn cưới</p>
 <blockquote class="text-center font-headline italic text-primary text-[1.1rem] md:text-2xl leading-relaxed mb-10 md:mb-12 max-w-2xl mx-auto text-balance">“Thương đủ rồi, mình về chung nhà thôi”</blockquote>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/90 dark:bg-stone-900/50 ring-1 ring-primary/[0.1] shadow-[0_12px_40px_rgba(89,65,64,0.1)]">
-<img class="w-full h-auto block" alt="Cô dâu chú rể nắm tay thành hình trái tim, khoe nhẫn cưới" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08959.jpg"/>
+<picture>
+<source srcset="wedding/BKT08959.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Cô dâu chú rể nắm tay thành hình trái tim, khoe nhẫn cưới" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08959.jpg" width="1680" height="1120"/>
+</picture>
 </figure>
 </div>
 </div>
@@ -539,13 +590,22 @@
 <blockquote class="text-center max-w-xl mx-auto mb-10 md:mb-12 px-2 font-headline italic text-primary text-[1.05rem] md:text-xl leading-relaxed">“Chỉ mong sau này: <b>Cuộc sống ổn định, năm tháng bình yên</b>”</blockquote>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08795.jpg"/>
+<picture>
+<source srcset="wedding/BKT08795.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08795.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08900.jpg"/>
+<picture>
+<source srcset="wedding/BKT08900.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08900.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08799.jpg"/>
+<picture>
+<source srcset="wedding/BKT08799.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08799.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 </div>
 </div>
@@ -556,13 +616,22 @@
 <p class="text-center text-sm md:text-base text-on-surface-variant font-body leading-relaxed max-w-2xl mx-auto px-2 mb-8 md:mb-10">Chúng tôi mong được gặp bạn trong ngày lễ thành hôn. Có bạn chung vui, bữa tiệc mới thật sự trọn vẹn.</p>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7">
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08500.jpg"/>
+<picture>
+<source srcset="wedding/BKT08500.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08500.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08392.jpg"/>
+<picture>
+<source srcset="wedding/BKT08392.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08392.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 <figure class="m-0 overflow-hidden rounded-2xl bg-white/80 dark:bg-stone-900/40 shadow-[0_10px_36px_rgba(89,65,64,0.09)] ring-1 ring-primary/[0.07]">
-<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08445.jpg"/>
+<picture>
+<source srcset="wedding/BKT08445.webp" type="image/webp"/>
+<img class="w-full h-auto block" alt="Ảnh cưới Quyết Thắng &amp; Thùy Linh" loading="lazy" decoding="async" fetchpriority="low" src="wedding/BKT08445.jpg" width="1120" height="1680"/>
+</picture>
 </figure>
 </div>
 </div>
