@@ -25,7 +25,7 @@
 <meta content="Thiệp mời cưới Quyết Thắng &amp; Thùy Linh. Trân trọng kính mời bạn và gia đình đến chung vui cùng chúng tôi." name="twitter:description"/>
 <meta content="https://thangnqvlth.github.io/wedding/main.jpg" name="twitter:image"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -82,9 +82,11 @@
               "outline": "#8d706f"
             },
             fontFamily: {
-              "headline": ["Noto Serif"],
-              "body": ["Plus Jakarta Sans"],
-              "label": ["Plus Jakarta Sans"]
+              /* Tailwind default `font-serif` must match Vietnamese headlines — system Georgia italic often breaks tone marks. */
+              serif: ['"Noto Serif"', "ui-serif", "Georgia", "serif"],
+              headline: ['"Noto Serif"', "ui-serif", "Georgia", "serif"],
+              body: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+              label: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
             },
             borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
           },
@@ -123,7 +125,9 @@
       html.dark .site-shell {
         background-color: #0c0a09;
       }
-      h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
+      h1, h2, h3, .serif {
+        font-family: "Noto Serif", ui-serif, Georgia, serif;
+      }
       .bg-glass { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
       /* Album: on mobile, natural height (full photo). From lg: same-height cards per row (grid row = tallest image was stretching cells and leaving white bands under shorter photos). */
       .gallery-journey picture {
