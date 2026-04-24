@@ -1038,11 +1038,53 @@
     wise: document.getElementById("gift-panel-wise")
   };
   const pageDescriptionMeta = document.querySelector('meta[name="description"]');
-  let currentLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  const getLanguageFromPath = () => {
+    const path = window.location.pathname.replace(/\/+$/, "");
+    if (path.endsWith("/en-US")) return "en-US";
+    if (path.endsWith("/vi-VN")) return "vi-VN";
+    return null;
+  };
+  const detectViewerPreferredLanguage = () => {
+    const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language].filter(Boolean);
+    const prefersVietnamese = browserLanguages.some((language) => String(language).toLowerCase().startsWith("vi"));
+    if (prefersVietnamese) {
+      return "vi-VN";
+    }
+
+    try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      if (timezone === "Asia/Ho_Chi_Minh") {
+        return "vi-VN";
+      }
+    } catch (_) {
+      /* ignore timezone detection error */
+    }
+
+    return "en-US";
+  };
+  const updateLanguageInUrl = () => {
+    const currentUrl = new URL(window.location.href);
+    const normalizedPath = currentUrl.pathname.replace(/\/+$/, "") || "/";
+    const pathWithoutLocale = normalizedPath
+      .replace(/\/(en-US|vi-VN)$/, "") || "/";
+    const nextPath = currentLanguage === "en-US"
+      ? `${pathWithoutLocale === "/" ? "" : pathWithoutLocale}/en-US`
+      : pathWithoutLocale;
+
+    if (nextPath !== currentUrl.pathname) {
+      window.history.replaceState({}, "", `${nextPath}${currentUrl.search}${currentUrl.hash}`);
+    }
+  };
+  const pathLanguage = getLanguageFromPath();
+  const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  let currentLanguage = pathLanguage || storedLanguage || detectViewerPreferredLanguage();
 
   if (!SUPPORTED_LANGUAGES.includes(currentLanguage)) {
     currentLanguage = "vi-VN";
   }
+  localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
 
   const t = (key) => {
     const selectedMessages = I18N_MESSAGES[currentLanguage] || I18N_MESSAGES["vi-VN"];
@@ -1078,6 +1120,7 @@
         currentLanguage === "en-US" ? "Chuyen ngon ngu sang tieng Viet" : "Switch language to English"
       );
     });
+    updateLanguageInUrl();
   };
 
   const setActiveGiftTab = (target) => {
