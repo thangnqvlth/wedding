@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="light" lang="vi"><head>
+<html class="light" lang="vi-VN"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -227,11 +227,12 @@
 <nav class="fixed top-0 w-full z-50 bg-[#fbf9f5]/60 dark:bg-stone-950/60 backdrop-blur-xl flex justify-between items-center px-8 md:px-16 h-20 w-full shadow-[0_20px_50px_rgba(89,65,64,0.06)]">
 <a class="text-xl md:text-2xl font-serif italic text-[#640013] dark:text-rose-500 inline-flex items-center gap-1 whitespace-nowrap max-w-[260px]" href="#">Quyết Thắng<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-[1.05em] h-[1.05em] max-w-[1.05em] inline-block flex-none align-[-0.1em]" aria-hidden="true" focusable="false"><path fill="rgb(210, 9, 25)" d="M305 151.1L320 171.8L335 151.1C360 116.5 400.2 96 442.9 96C516.4 96 576 155.6 576 229.1L576 231.7C576 343.9 436.1 474.2 363.1 529.9C350.7 539.3 335.5 544 320 544C304.5 544 289.2 539.4 276.9 529.9C203.9 474.2 64 343.9 64 231.7L64 229.1C64 155.6 123.6 96 197.1 96C239.8 96 280 116.5 305 151.1z"/></svg>Thùy Linh</a>
 <div class="hidden md:flex space-x-8 items-center">
-<a class="text-[#640013] dark:text-rose-400 font-bold border-b-2 border-[#640013]/20 pb-1 font-serif italic tracking-wide hover:text-[#8D021F] transition-colors" href="#story">Chuyện Tình</a>
-<a class="text-stone-600 dark:text-stone-400 font-medium font-serif italic tracking-wide hover:text-[#8D021F] transition-colors" href="#events">Lễ Cưới</a>
-<a class="text-stone-600 dark:text-stone-400 font-medium font-serif italic tracking-wide hover:text-[#8D021F] transition-colors" href="#gallery">Album</a>
-<a class="text-stone-600 dark:text-stone-400 font-medium font-serif italic tracking-wide hover:text-[#8D021F] transition-colors" href="#wishes">Lời Chúc</a>
+<a class="text-[#640013] dark:text-rose-400 font-bold border-b-2 border-[#640013]/20 pb-1 font-serif italic tracking-wide hover:text-[#8D021F] transition-colors" href="#story" data-i18n="nav.story">Chuyện Tình</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium font-serif italic tracking-wide hover:text-[#8D021F] transition-colors" href="#events" data-i18n="nav.events">Lễ Cưới</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium font-serif italic tracking-wide hover:text-[#8D021F] transition-colors" href="#gallery" data-i18n="nav.album">Album</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium font-serif italic tracking-wide hover:text-[#8D021F] transition-colors" href="#wishes" data-i18n="nav.wishes">Lời Chúc</a>
 <a class="bg-primary text-on-primary px-8 py-2 rounded-full font-serif italic tracking-wide scale-95 active:scale-90 transition-transform shadow-lg" href="#rsvp">RSVP</a>
+<button aria-label="Switch language to English" class="border border-primary/25 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider text-primary hover:bg-primary/5 transition-colors" id="language-toggle-button" type="button">EN-US</button>
 </div>
 <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Mở menu điều hướng" class="md:hidden text-primary" id="mobile-menu-button" type="button">
 <span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
@@ -239,10 +240,11 @@
 </nav>
 <div class="fixed top-20 inset-x-0 z-40 px-6 md:hidden opacity-0 -translate-y-2 invisible pointer-events-none transition-all duration-300 ease-out" id="mobile-menu">
 <div class="rounded-2xl bg-[#fbf9f5]/95 dark:bg-stone-950/95 backdrop-blur-xl border border-[#8D021F]/10 shadow-[0_20px_50px_rgba(89,65,64,0.1)] p-4 space-y-2">
-<a class="block px-4 py-3 rounded-xl text-[#640013] dark:text-rose-400 font-semibold font-serif italic hover:bg-[#640013]/5 transition-colors" href="#story">Chuyện Tình</a>
-<a class="block px-4 py-3 rounded-xl text-stone-700 dark:text-stone-300 font-medium font-serif italic hover:bg-[#640013]/5 transition-colors" href="#events">Lễ Cưới</a>
-<a class="block px-4 py-3 rounded-xl text-stone-700 dark:text-stone-300 font-medium font-serif italic hover:bg-[#640013]/5 transition-colors" href="#gallery">Album</a>
-<a class="block px-4 py-3 rounded-xl text-stone-700 dark:text-stone-300 font-medium font-serif italic hover:bg-[#640013]/5 transition-colors" href="#wishes">Lời Chúc</a>
+<a class="block px-4 py-3 rounded-xl text-[#640013] dark:text-rose-400 font-semibold font-serif italic hover:bg-[#640013]/5 transition-colors" href="#story" data-i18n="nav.story">Chuyện Tình</a>
+<a class="block px-4 py-3 rounded-xl text-stone-700 dark:text-stone-300 font-medium font-serif italic hover:bg-[#640013]/5 transition-colors" href="#events" data-i18n="nav.events">Lễ Cưới</a>
+<a class="block px-4 py-3 rounded-xl text-stone-700 dark:text-stone-300 font-medium font-serif italic hover:bg-[#640013]/5 transition-colors" href="#gallery" data-i18n="nav.album">Album</a>
+<a class="block px-4 py-3 rounded-xl text-stone-700 dark:text-stone-300 font-medium font-serif italic hover:bg-[#640013]/5 transition-colors" href="#wishes" data-i18n="nav.wishes">Lời Chúc</a>
+<button aria-label="Switch language to English" class="w-full mt-2 border border-primary/20 px-4 py-3 rounded-xl text-left text-sm font-semibold tracking-wider text-primary hover:bg-primary/5 transition-colors" id="language-toggle-button-mobile" type="button">EN-US</button>
 </div>
 </div>
 <!-- Hero Section -->
@@ -265,23 +267,23 @@
             </p>
 <div class="pt-12 flex flex-col items-center gap-10 w-full">
 <div class="w-full max-w-xl md:max-w-3xl px-2 text-center">
-<h2 class="text-xl md:text-2xl text-primary font-headline italic mb-4 md:mb-6" id="countdown-title">Đếm ngược ngày chung đôi</h2>
+<h2 class="text-xl md:text-2xl text-primary font-headline italic mb-4 md:mb-6" id="countdown-title" data-i18n="countdown.titleDefault">Đếm ngược ngày chung đôi</h2>
 <div class="grid grid-cols-4 gap-2 md:gap-6">
 <div class="bg-white/65 dark:bg-stone-900/50 backdrop-blur-md p-3 md:p-5 rounded-xl md:rounded-2xl shadow-sm border border-outline-variant/20">
 <span class="block text-2xl md:text-4xl lg:text-5xl text-primary font-headline italic leading-tight" id="countdown-days">00</span>
-<span class="text-[9px] md:text-[10px] uppercase tracking-widest text-outline">Ngày</span>
+<span class="text-[9px] md:text-[10px] uppercase tracking-widest text-outline" data-i18n="countdown.days">Ngày</span>
 </div>
 <div class="bg-white/65 dark:bg-stone-900/50 backdrop-blur-md p-3 md:p-5 rounded-xl md:rounded-2xl shadow-sm border border-outline-variant/20">
 <span class="block text-2xl md:text-4xl lg:text-5xl text-primary font-headline italic leading-tight" id="countdown-hours">00</span>
-<span class="text-[9px] md:text-[10px] uppercase tracking-widest text-outline">Giờ</span>
+<span class="text-[9px] md:text-[10px] uppercase tracking-widest text-outline" data-i18n="countdown.hours">Giờ</span>
 </div>
 <div class="bg-white/65 dark:bg-stone-900/50 backdrop-blur-md p-3 md:p-5 rounded-xl md:rounded-2xl shadow-sm border border-outline-variant/20">
 <span class="block text-2xl md:text-4xl lg:text-5xl text-primary font-headline italic leading-tight" id="countdown-minutes">00</span>
-<span class="text-[9px] md:text-[10px] uppercase tracking-widest text-outline">Phút</span>
+<span class="text-[9px] md:text-[10px] uppercase tracking-widest text-outline" data-i18n="countdown.minutes">Phút</span>
 </div>
 <div class="bg-white/65 dark:bg-stone-900/50 backdrop-blur-md p-3 md:p-5 rounded-xl md:rounded-2xl shadow-sm border border-outline-variant/20">
 <span class="block text-2xl md:text-4xl lg:text-5xl text-primary font-headline italic leading-tight" id="countdown-seconds">00</span>
-<span class="text-[9px] md:text-[10px] uppercase tracking-widest text-outline">Giây</span>
+<span class="text-[9px] md:text-[10px] uppercase tracking-widest text-outline" data-i18n="countdown.seconds">Giây</span>
 </div>
 </div>
 </div>
@@ -647,7 +649,7 @@
 <section class="py-32 bg-surface" id="rsvp">
 <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20">
 <div id="wishes">
-<h3 class="text-3xl text-primary font-headline italic mb-8">Lời Chúc Tốt Đẹp</h3>
+<h3 class="text-3xl text-primary font-headline italic mb-8" data-i18n="wishes.title">Lời Chúc Tốt Đẹp</h3>
 <div class="space-y-6">
 <div class="bg-surface-container-low p-6 rounded-xl italic text-on-surface-variant font-body relative">
   <span class="material-symbols-outlined absolute -top-3 -left-3 text-primary/20 text-4xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
@@ -666,30 +668,87 @@
 </div>
 </div>
 </div>
-<div class="bg-surface-container-lowest p-10 rounded-2xl shadow-[0_20px_50px_rgba(89,65,64,0.06)]">
-<h3 class="text-3xl text-primary font-headline italic mb-2">Xác Nhận Tham Dự</h3>
-<p class="text-on-surface-variant font-body text-sm mb-8">Vui lòng phản hồi trước ngày 01/05/2026</p>
+<div class="bg-surface-container-lowest p-10 rounded-2xl shadow-[0_20px_50px_rgba(89,65,64,0.06)] self-start">
+<h3 class="text-3xl text-primary font-headline italic mb-2" data-i18n="rsvp.title">Xác Nhận Tham Dự</h3>
+<p class="text-on-surface-variant font-body text-sm mb-8" data-i18n="rsvp.replyBy">Vui lòng phản hồi trước ngày 01/05/2026</p>
 <form action="https://formspree.io/f/xnjldrjy" class="space-y-6" data-formspree-fallback="https://formspree.io/f/mjgpzorq" id="rsvp-form" method="POST">
 <div>
-<label class="block text-[10px] uppercase tracking-widest text-outline mb-2">Họ và Tên</label>
-<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" name="ho_ten" placeholder="Nguyễn Văn A" required type="text"/>
+<label class="block text-[10px] uppercase tracking-widest text-outline mb-2" data-i18n="rsvp.nameLabel">Họ và Tên</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" name="ho_ten" placeholder="Nguyễn Văn A" required type="text" data-i18n-placeholder="rsvp.namePlaceholder"/>
 </div>
 <div>
-<label class="block text-[10px] uppercase tracking-widest text-outline mb-2">Số người tham dự</label>
+<label class="block text-[10px] uppercase tracking-widest text-outline mb-2" data-i18n="rsvp.guestCountLabel">Số người tham dự</label>
 <select class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body" name="so_nguoi_tham_du" required>
-<option>1 người</option>
-<option>2 người</option>
-<option>Cả gia đình</option>
+<option data-i18n="rsvp.guestOne">1 người</option>
+<option data-i18n="rsvp.guestTwo">2 người</option>
+<option data-i18n="rsvp.guestFamily">Cả gia đình</option>
 </select>
 </div>
 <div>
-<label class="block text-[10px] uppercase tracking-widest text-outline mb-2">Lời chúc</label>
-<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" name="loi_chuc" placeholder="Viết lời chúc của bạn..." rows="3"></textarea>
+<label class="block text-[10px] uppercase tracking-widest text-outline mb-2" data-i18n="rsvp.wishLabel">Lời chúc</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" name="loi_chuc" placeholder="Viết lời chúc của bạn..." rows="3" data-i18n-placeholder="rsvp.wishPlaceholder"></textarea>
 </div>
 <input name="_subject" type="hidden" value="Loi chuc moi tu website cuoi"/>
-<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline italic tracking-wide text-lg shadow-lg hover:bg-primary-container transition-all disabled:opacity-60 disabled:cursor-not-allowed" type="submit">Gửi Lời Chúc</button>
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline italic tracking-wide text-lg shadow-lg hover:bg-primary-container transition-all disabled:opacity-60 disabled:cursor-not-allowed" type="submit" data-i18n="rsvp.submit">Gửi Lời Chúc</button>
 </form>
 <p aria-live="polite" class="mt-3 text-sm font-body hidden" id="rsvp-message"></p>
+</div>
+</div>
+</section>
+<section class="pt-0 pb-24 bg-surface" id="gift">
+<div class="max-w-6xl mx-auto px-6">
+<div class="rounded-2xl border border-primary/15 bg-surface-container-lowest p-6 md:p-7 shadow-[0_12px_30px_rgba(89,65,64,0.06)]">
+<h4 class="text-2xl text-primary font-headline italic mb-2" data-i18n="gift.title">Gửi quà cho chúng mình ^^</h4>
+<p class="text-sm text-on-surface-variant font-body mb-5" data-i18n="gift.subtitle">Nếu bạn muốn gửi quà mừng, bạn có thể chuyển khoản qua QR ngân hàng hoặc Wise.</p>
+<button aria-controls="gift-content" aria-expanded="false" class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-full font-headline italic tracking-wide text-sm shadow-md hover:bg-primary-container transition-all mb-5" id="gift-open-button" type="button">
+<span data-i18n="gift.revealButton">Gửi quà của bạn tại đây</span>
+<span class="material-symbols-outlined text-[18px]" id="gift-open-icon">expand_more</span>
+</button>
+<div class="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out" id="gift-content">
+<div class="inline-flex items-center rounded-full border border-outline-variant/30 bg-surface p-1 mb-5">
+<button aria-controls="gift-panel-qr" aria-selected="true" class="gift-tab-button rounded-full px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide bg-primary text-on-primary transition-colors" data-gift-tab-target="qr" id="gift-tab-qr" role="tab" type="button" data-i18n="gift.tabQr">QR</button>
+<button aria-controls="gift-panel-wise" aria-selected="false" class="gift-tab-button rounded-full px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide text-primary hover:bg-primary/10 transition-colors" data-gift-tab-target="wise" id="gift-tab-wise" role="tab" type="button" data-i18n="gift.tabWise">Wise</button>
+</div>
+<div class="rounded-xl border border-outline-variant/25 bg-surface p-4" id="gift-panel-qr" role="tabpanel">
+<p class="text-xs uppercase tracking-[0.2em] text-outline mb-3" data-i18n="gift.bankQr">QR ngân hàng</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<figure class="rounded-lg border border-outline-variant/25 bg-surface-container-low p-2 flex flex-col h-full">
+<div class="block w-full overflow-hidden rounded-md flex-1">
+<img alt="QR chuyển khoản cô dâu" class="w-full h-auto rounded-md block transition-transform duration-300 hover:scale-[1.02]" loading="lazy" decoding="async" src="wedding/co-dau-qr.jpeg"/>
+</div>
+<figcaption class="text-[11px] text-on-surface-variant text-center mt-2 font-body" data-i18n="gift.brideQrLabel">QR cô dâu</figcaption>
+<a class="mt-2 inline-flex items-center justify-center gap-2 w-full rounded-full border border-primary/25 text-primary px-3 py-2 text-xs font-semibold hover:bg-primary/10 transition-colors" href="wedding/co-dau-qr.jpeg" download="co-dau-qr.jpeg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-4 h-4 fill-current" aria-hidden="true" focusable="false"><path d="M352 96C352 78.3 337.7 64 320 64C302.3 64 288 78.3 288 96L288 306.7L246.6 265.3C234.1 252.8 213.8 252.8 201.3 265.3C188.8 277.8 188.8 298.1 201.3 310.6L297.3 406.6C309.8 419.1 330.1 419.1 342.6 406.6L438.6 310.6C451.1 298.1 451.1 277.8 438.6 265.3C426.1 252.8 405.8 252.8 393.3 265.3L352 306.7L352 96zM160 384C124.7 384 96 412.7 96 448L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 448C544 412.7 515.3 384 480 384L433.1 384L376.5 440.6C345.3 471.8 294.6 471.8 263.4 440.6L206.9 384L160 384zM464 440C477.3 440 488 450.7 488 464C488 477.3 477.3 488 464 488C450.7 488 440 477.3 440 464C440 450.7 450.7 440 464 440z"/></svg>
+<span data-i18n="gift.downloadQr">Tải QR</span>
+</a>
+</figure>
+<figure class="rounded-lg border border-outline-variant/25 bg-surface-container-low p-2 flex flex-col h-full">
+<div class="block w-full overflow-hidden rounded-md flex-1">
+<img alt="QR chuyển khoản chú rể" class="w-full h-auto rounded-md block transition-transform duration-300 hover:scale-[1.02]" loading="lazy" decoding="async" src="wedding/chu-re-qr.webp"/>
+</div>
+<figcaption class="text-[11px] text-on-surface-variant text-center mt-2 font-body" data-i18n="gift.groomQrLabel">QR chú rể</figcaption>
+<a class="mt-2 inline-flex items-center justify-center gap-2 w-full rounded-full border border-primary/25 text-primary px-3 py-2 text-xs font-semibold hover:bg-primary/10 transition-colors" href="wedding/chu-re-qr.webp" download="chu-re-qr.webp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-4 h-4 fill-current" aria-hidden="true" focusable="false"><path d="M352 96C352 78.3 337.7 64 320 64C302.3 64 288 78.3 288 96L288 306.7L246.6 265.3C234.1 252.8 213.8 252.8 201.3 265.3C188.8 277.8 188.8 298.1 201.3 310.6L297.3 406.6C309.8 419.1 330.1 419.1 342.6 406.6L438.6 310.6C451.1 298.1 451.1 277.8 438.6 265.3C426.1 252.8 405.8 252.8 393.3 265.3L352 306.7L352 96zM160 384C124.7 384 96 412.7 96 448L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 448C544 412.7 515.3 384 480 384L433.1 384L376.5 440.6C345.3 471.8 294.6 471.8 263.4 440.6L206.9 384L160 384zM464 440C477.3 440 488 450.7 488 464C488 477.3 477.3 488 464 488C450.7 488 440 477.3 440 464C440 450.7 450.7 440 464 440z"/></svg>
+<span data-i18n="gift.downloadQr">Tải QR</span>
+</a>
+</figure>
+</div>
+</div>
+<div class="rounded-xl border border-outline-variant/25 bg-surface p-4 flex flex-col hidden mt-4" id="gift-panel-wise" role="tabpanel">
+<p class="text-xs uppercase tracking-[0.2em] text-outline mb-3" data-i18n="gift.wise">Wise transfer</p>
+<p class="text-sm text-on-surface-variant font-body leading-relaxed mb-4" data-i18n="gift.wiseHint">Dùng Wise để gửi quà mừng nhanh và tiện cho giao dịch quốc tế.</p>
+<div class="rounded-lg border border-outline-variant/20 bg-surface-container-low p-4 space-y-2 text-sm font-body text-on-surface-variant mb-4">
+<p><span class="font-semibold" data-i18n="gift.wise.bank">Bank</span>: Tienphong Commercial Joint Stock Bank</p>
+<p><span class="font-semibold">SWIFT BIC</span>: TPBVVNVX</p>
+<p><span class="font-semibold" data-i18n="gift.wise.beneficiary">Beneficiary</span>: NGUYEN QUYET THANG</p>
+<p><span class="font-semibold" data-i18n="gift.wise.accountNo">Account No.</span>: 05682034701</p>
+</div>
+<a class="inline-flex items-center justify-center gap-2 mt-auto w-full bg-primary text-on-primary py-3 rounded-full font-headline italic tracking-wide text-sm shadow-md hover:bg-primary-container transition-all" href="https://wise.com/gb/send-money/" rel="noopener noreferrer" target="_blank" data-i18n="gift.wiseCta">
+                            Gửi bằng Wise
+                            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -740,15 +799,15 @@ Mở Google Maps
 <div class="fixed bottom-0 left-0 w-full h-16 flex justify-around items-center px-4 pb-safe">
 <a class="flex flex-col items-center justify-center text-[#640013] dark:text-rose-400 bg-[#640013]/5 rounded-full px-4 py-1 transition-all cubic-bezier(0.22, 1, 0.36, 1) duration-300" href="#">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">heart_plus</span>
-<span class="font-sans text-[10px] uppercase tracking-widest">Trang Chủ</span>
+<span class="font-sans text-[10px] uppercase tracking-widest" data-i18n="bottom.home">Trang Chủ</span>
 </a>
 <a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 active:bg-[#640013]/10 transition-all duration-300" href="#events">
 <span class="material-symbols-outlined">calendar_today</span>
-<span class="font-sans text-[10px] uppercase tracking-widest">Lễ Cưới</span>
+<span class="font-sans text-[10px] uppercase tracking-widest" data-i18n="bottom.events">Lễ Cưới</span>
 </a>
 <a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 active:bg-[#640013]/10 transition-all duration-300" href="#gallery">
 <span class="material-symbols-outlined">photo_library</span>
-<span class="font-sans text-[10px] uppercase tracking-widest">Album</span>
+<span class="font-sans text-[10px] uppercase tracking-widest" data-i18n="bottom.album">Album</span>
 </a>
 <a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 active:bg-[#640013]/10 transition-all duration-300" href="#rsvp">
 <span class="material-symbols-outlined">mail</span>
@@ -757,6 +816,207 @@ Mở Google Maps
 </div>
 </nav>
 <script>
+  const LANGUAGE_STORAGE_KEY = "wedding_display_language";
+  const SUPPORTED_LANGUAGES = ["vi-VN", "en-US"];
+  const I18N_MESSAGES = {
+    "vi-VN": {
+      "doc.title": "Quyết Thắng & Thùy Linh — Thiệp Mời Cưới",
+      "meta.description": "Thiệp mời cưới Quyết Thắng & Thùy Linh. Trân trọng kính mời bạn và gia đình đến chung vui cùng chúng tôi.",
+      "nav.story": "Chuyện Tình",
+      "nav.events": "Lễ Cưới",
+      "nav.album": "Album",
+      "nav.wishes": "Lời Chúc",
+      "countdown.titleDefault": "Đếm ngược ngày chung đôi",
+      "countdown.titleDone": "Hôm nay là ngày trọng đại!",
+      "countdown.days": "Ngày",
+      "countdown.hours": "Giờ",
+      "countdown.minutes": "Phút",
+      "countdown.seconds": "Giây",
+      "wishes.title": "Lời Chúc Tốt Đẹp",
+      "gift.title": "Gửi quà cho chúng mình ^^",
+      "gift.subtitle": "Nếu bạn muốn gửi quà mừng, bạn có thể chuyển khoản qua QR ngân hàng hoặc Wise.",
+      "gift.revealButton": "Gửi quà của bạn tại đây",
+      "gift.tabQr": "QR",
+      "gift.tabWise": "Wise",
+      "gift.bankQr": "QR ngân hàng",
+      "gift.brideQrLabel": "QR cô dâu",
+      "gift.groomQrLabel": "QR chú rể",
+      "gift.wise": "Wise transfer",
+      "gift.wiseHint": "Dùng Wise để gửi quà mừng nhanh và tiện cho giao dịch quốc tế.",
+      "gift.wiseCta": "Gửi bằng Wise",
+      "gift.downloadQr": "Tải QR",
+      "gift.wise.bank": "Ngân hàng",
+      "gift.wise.beneficiary": "Người thụ hưởng",
+      "gift.wise.accountNo": "Số tài khoản",
+      "rsvp.title": "Xác Nhận Tham Dự",
+      "rsvp.replyBy": "Vui lòng phản hồi trước ngày 01/05/2026",
+      "rsvp.nameLabel": "Họ và Tên",
+      "rsvp.namePlaceholder": "Nguyễn Văn A",
+      "rsvp.guestCountLabel": "Số người tham dự",
+      "rsvp.guestOne": "1 người",
+      "rsvp.guestTwo": "2 người",
+      "rsvp.guestFamily": "Cả gia đình",
+      "rsvp.wishLabel": "Lời chúc",
+      "rsvp.wishPlaceholder": "Viết lời chúc của bạn...",
+      "rsvp.submit": "Gửi Lời Chúc",
+      "rsvp.submitting": "Đang gửi...",
+      "rsvp.success": "Cảm ơn bạn đã gửi lời chúc. Chúng mình đã nhận được rồi!",
+      "rsvp.error": "Gửi chưa thành công. Bạn thử lại sau ít phút hoặc nhắn trực tiếp cho chúng mình nhé.",
+      "bottom.home": "Trang Chủ",
+      "bottom.events": "Lễ Cưới",
+      "bottom.album": "Album"
+    },
+    "en-US": {
+      "doc.title": "Quyet Thang & Thuy Linh — Wedding Invitation",
+      "meta.description": "Wedding invitation for Quyet Thang & Thuy Linh. We warmly invite you and your family to celebrate with us.",
+      "nav.story": "Our Story",
+      "nav.events": "Ceremony",
+      "nav.album": "Album",
+      "nav.wishes": "Wishes",
+      "countdown.titleDefault": "Countdown to our wedding day",
+      "countdown.titleDone": "Today is our special day!",
+      "countdown.days": "Days",
+      "countdown.hours": "Hours",
+      "countdown.minutes": "Minutes",
+      "countdown.seconds": "Seconds",
+      "wishes.title": "Best Wishes",
+      "gift.title": "Send us your gift ^^",
+      "gift.subtitle": "If you would like to send a wedding gift, you can use bank QR transfer or Wise.",
+      "gift.revealButton": "Send your gift",
+      "gift.tabQr": "QR",
+      "gift.tabWise": "Wise",
+      "gift.bankQr": "Bank QR",
+      "gift.brideQrLabel": "Bride QR",
+      "gift.groomQrLabel": "Groom QR",
+      "gift.wise": "Wise Transfer",
+      "gift.wiseHint": "Use Wise for fast and convenient international transfer.",
+      "gift.wiseCta": "Send via Wise",
+      "gift.downloadQr": "Download QR",
+      "gift.wise.bank": "Bank",
+      "gift.wise.beneficiary": "Beneficiary",
+      "gift.wise.accountNo": "Account No.",
+      "rsvp.title": "RSVP Confirmation",
+      "rsvp.replyBy": "Please respond before 05/01/2026",
+      "rsvp.nameLabel": "Full Name",
+      "rsvp.namePlaceholder": "John Doe",
+      "rsvp.guestCountLabel": "Number of Guests",
+      "rsvp.guestOne": "1 guest",
+      "rsvp.guestTwo": "2 guests",
+      "rsvp.guestFamily": "Whole family",
+      "rsvp.wishLabel": "Your Message",
+      "rsvp.wishPlaceholder": "Write your wishes...",
+      "rsvp.submit": "Send Wishes",
+      "rsvp.submitting": "Sending...",
+      "rsvp.success": "Thank you for your wishes. We have received your message!",
+      "rsvp.error": "Unable to send right now. Please try again later or contact us directly.",
+      "bottom.home": "Home",
+      "bottom.events": "Ceremony",
+      "bottom.album": "Album"
+    }
+  };
+  const languageToggleButtons = [
+    document.getElementById("language-toggle-button"),
+    document.getElementById("language-toggle-button-mobile")
+  ].filter(Boolean);
+  const giftOpenButton = document.getElementById("gift-open-button");
+  const giftOpenIcon = document.getElementById("gift-open-icon");
+  const giftContent = document.getElementById("gift-content");
+  const giftTabButtons = Array.from(document.querySelectorAll(".gift-tab-button"));
+  const giftTabPanels = {
+    qr: document.getElementById("gift-panel-qr"),
+    wise: document.getElementById("gift-panel-wise")
+  };
+  const pageDescriptionMeta = document.querySelector('meta[name="description"]');
+  let currentLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+
+  if (!SUPPORTED_LANGUAGES.includes(currentLanguage)) {
+    currentLanguage = "vi-VN";
+  }
+
+  const t = (key) => {
+    const selectedMessages = I18N_MESSAGES[currentLanguage] || I18N_MESSAGES["vi-VN"];
+    const fallbackMessages = I18N_MESSAGES["vi-VN"];
+    return selectedMessages[key] || fallbackMessages[key] || key;
+  };
+
+  const applyLanguage = () => {
+    document.documentElement.lang = currentLanguage;
+    document.title = t("doc.title");
+    if (pageDescriptionMeta) {
+      pageDescriptionMeta.setAttribute("content", t("meta.description"));
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.getAttribute("data-i18n");
+      if (key) {
+        element.textContent = t(key);
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-placeholder");
+      if (key) {
+        element.setAttribute("placeholder", t(key));
+      }
+    });
+
+    languageToggleButtons.forEach((button) => {
+      button.textContent = currentLanguage === "en-US" ? "VI-VN" : "EN-US";
+      button.setAttribute(
+        "aria-label",
+        currentLanguage === "en-US" ? "Chuyen ngon ngu sang tieng Viet" : "Switch language to English"
+      );
+    });
+  };
+
+  const setActiveGiftTab = (target) => {
+    if (!giftTabPanels[target]) return;
+    giftTabButtons.forEach((button) => {
+      const isActive = button.dataset.giftTabTarget === target;
+      button.setAttribute("aria-selected", String(isActive));
+      button.classList.toggle("bg-primary", isActive);
+      button.classList.toggle("text-on-primary", isActive);
+      button.classList.toggle("text-primary", !isActive);
+      button.classList.toggle("hover:bg-primary/10", !isActive);
+    });
+    Object.entries(giftTabPanels).forEach(([key, panel]) => {
+      if (!panel) return;
+      panel.classList.toggle("hidden", key !== target);
+    });
+  };
+
+  giftTabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setActiveGiftTab(button.dataset.giftTabTarget);
+    });
+  });
+  setActiveGiftTab("qr");
+
+  if (giftOpenButton && giftOpenIcon && giftContent) {
+    giftOpenButton.addEventListener("click", () => {
+      const willOpen = giftContent.classList.contains("max-h-0");
+      giftContent.classList.toggle("max-h-0", !willOpen);
+      giftContent.classList.toggle("opacity-0", !willOpen);
+      giftContent.classList.toggle("max-h-[2000px]", willOpen);
+      giftContent.classList.toggle("opacity-100", willOpen);
+      giftOpenButton.setAttribute("aria-expanded", String(willOpen));
+      giftOpenIcon.textContent = willOpen ? "expand_less" : "expand_more";
+    });
+  }
+
+  const switchLanguage = () => {
+    currentLanguage = currentLanguage === "en-US" ? "vi-VN" : "en-US";
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+    applyLanguage();
+    updateWeddingCountdown();
+  };
+
+  languageToggleButtons.forEach((button) => {
+    button.addEventListener("click", switchLanguage);
+  });
+
+  applyLanguage();
+
   const weddingCountdownElements = {
     title: document.getElementById("countdown-title"),
     days: document.getElementById("countdown-days"),
@@ -784,7 +1044,7 @@ Mở Google Maps
     weddingCountdownElements.hours.textContent = String(hours).padStart(2, "0");
     weddingCountdownElements.minutes.textContent = String(minutes).padStart(2, "0");
     weddingCountdownElements.seconds.textContent = String(seconds).padStart(2, "0");
-    weddingCountdownElements.title.textContent = rawDistance <= 0 ? "Hôm nay là ngày trọng đại!" : "Đếm ngược đến ngày chung đôi";
+    weddingCountdownElements.title.textContent = rawDistance <= 0 ? t("countdown.titleDone") : t("countdown.titleDefault");
   };
 
   updateWeddingCountdown();
@@ -831,7 +1091,7 @@ Mở Google Maps
 
   const showRsvpSuccessMessage = () => {
     if (!rsvpMessage) return;
-    rsvpMessage.textContent = "Cảm ơn bạn đã gửi lời chúc. Chúng mình đã nhận được rồi!";
+    rsvpMessage.textContent = t("rsvp.success");
     rsvpMessage.className = "mt-3 text-sm font-body text-green-700";
   };
 
@@ -839,7 +1099,7 @@ Mở Google Maps
     if (!rsvpMessage) return;
     rsvpMessage.textContent =
       detail ||
-      "Gửi chưa thành công. Bạn thử lại sau ít phút hoặc nhắn trực tiếp cho chúng mình nhé.";
+      t("rsvp.error");
     rsvpMessage.className = "mt-3 text-sm font-body text-red-700";
   };
 
@@ -871,14 +1131,14 @@ Mở Google Maps
       rsvpMessage.classList.add("hidden");
       submitButton.disabled = true;
       const originalLabel = submitButton.textContent;
-      submitButton.textContent = "Đang gửi...";
+      submitButton.textContent = t("rsvp.submitting");
 
       if (localStorage.getItem(rsvpStorageKey) === "true") {
         rsvpForm.reset();
         showRsvpSuccessMessage();
         rsvpMessage.classList.remove("hidden");
         submitButton.disabled = false;
-        submitButton.textContent = originalLabel || "Gửi Lời Chúc";
+        submitButton.textContent = originalLabel || t("rsvp.submit");
         return;
       }
 
@@ -914,7 +1174,7 @@ Mở Google Maps
       } finally {
         rsvpMessage.classList.remove("hidden");
         submitButton.disabled = false;
-        submitButton.textContent = originalLabel || "Gửi Lời Chúc";
+        submitButton.textContent = originalLabel || t("rsvp.submit");
       }
     });
   }
