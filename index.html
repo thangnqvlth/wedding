@@ -27,6 +27,55 @@
 <meta content="Quyết Thắng &amp; Thùy Linh — Thiệp Mời Cưới" name="twitter:title"/>
 <meta content="Thiệp mời cưới Quyết Thắng &amp; Thùy Linh. Trân trọng kính mời bạn và gia đình đến chung vui cùng chúng tôi." name="twitter:description"/>
 <meta content="https://thanglinhlecuoi.online/wedding/og.jpg" name="twitter:image"/>
+<script>
+(() => {
+  try {
+    const href = String(window.location.href || "");
+    const u = new URL(href);
+    const origin = u.origin;
+    if (href === origin || href.startsWith(origin + "?") || href.startsWith(origin + "#")) {
+      let rest = "";
+      if (href === origin) rest = "";
+      else if (href.startsWith(origin + "?")) rest = href.slice(origin.length);
+      else if (href.startsWith(origin + "#")) rest = href.slice(origin.length);
+      window.history.replaceState(window.history.state, "", `${origin}/${rest}`);
+    }
+  } catch (_) { /* noop */ }
+
+  const langFromSearch = () => {
+    try {
+      const raw = new URLSearchParams(window.location.search).get("lang");
+      if (!raw) return null;
+      const norm = String(raw).trim().toLowerCase().replace(/_/g, "-");
+      if (norm === "vi" || norm === "vn" || norm === "vi-vn") return "vi-VN";
+      if (norm === "en" || norm === "enus" || norm === "en-us" || norm === "us-en" || norm === "usen") return "en-US";
+      return null;
+    } catch (_) {
+      return null;
+    }
+  };
+
+  const ql = langFromSearch();
+  if (ql === "en-US") {
+    const EN_TITLE = "Quyet Thang & Thuy Linh — Wedding Invitation";
+    const EN_DESC = "Wedding invitation for Quyet Thang & Thuy Linh. We warmly invite you and your family to celebrate with us.";
+    document.title = EN_TITLE;
+    const dm = document.querySelector('meta[name="description"]');
+    if (dm) dm.setAttribute("content", EN_DESC);
+    const setMeta = (sel, content) => {
+      const el = document.querySelector(sel);
+      if (el) el.setAttribute("content", content);
+    };
+    setMeta('meta[property="og:title"]', EN_TITLE);
+    setMeta('meta[property="og:description"]', EN_DESC);
+    setMeta('meta[name="twitter:title"]', EN_TITLE);
+    setMeta('meta[name="twitter:description"]', EN_DESC);
+    document.documentElement.lang = "en-US";
+  } else if (ql === "vi-VN") {
+    document.documentElement.lang = "vi-VN";
+  }
+})();
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -1041,12 +1090,6 @@
     wise: document.getElementById("gift-panel-wise")
   };
   const pageDescriptionMeta = document.querySelector('meta[name="description"]');
-  const getLanguageFromPath = () => {
-    const path = window.location.pathname.replace(/\/+$/, "");
-    if (path.endsWith("/en-US")) return "en-US";
-    if (path.endsWith("/vi-VN")) return "vi-VN";
-    return null;
-  };
   const detectViewerPreferredLanguage = () => {
     const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length
       ? navigator.languages
@@ -1067,22 +1110,26 @@
 
     return "en-US";
   };
-  const updateLanguageInUrl = () => {
-    const currentUrl = new URL(window.location.href);
-    const normalizedPath = currentUrl.pathname.replace(/\/+$/, "") || "/";
-    const pathWithoutLocale = normalizedPath
-      .replace(/\/(en-US|vi-VN)$/, "") || "/";
-    const nextPath = currentLanguage === "en-US"
-      ? `${pathWithoutLocale === "/" ? "" : pathWithoutLocale}/en-US`
-      : pathWithoutLocale;
 
-    if (nextPath !== currentUrl.pathname) {
-      window.history.replaceState({}, "", `${nextPath}${currentUrl.search}${currentUrl.hash}`);
+  /** ?lang=... — ví dụ en-US, vi-VN; chấp nhận alias us-en (thứ tự ngược) và en / vi */
+  const getLanguageFromQuery = () => {
+    try {
+      const raw = new URLSearchParams(window.location.search).get("lang");
+      if (!raw) return null;
+      const norm = String(raw).trim().toLowerCase().replace(/_/g, "-");
+      if (norm === "vi" || norm === "vn" || norm === "vi-vn") return "vi-VN";
+      if (norm === "en" || norm === "enus" || norm === "en-us" || norm === "us-en" || norm === "usen") {
+        return "en-US";
+      }
+      return null;
+    } catch (_) {
+      return null;
     }
   };
-  const pathLanguage = getLanguageFromPath();
+
   const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-  let currentLanguage = pathLanguage || storedLanguage || detectViewerPreferredLanguage();
+  const queryLanguage = getLanguageFromQuery();
+  let currentLanguage = queryLanguage || storedLanguage || detectViewerPreferredLanguage();
 
   if (!SUPPORTED_LANGUAGES.includes(currentLanguage)) {
     currentLanguage = "vi-VN";
@@ -1123,7 +1170,6 @@
         currentLanguage === "en-US" ? "Chuyen ngon ngu sang tieng Viet" : "Switch language to English"
       );
     });
-    updateLanguageInUrl();
   };
 
   const setActiveGiftTab = (target) => {
@@ -1417,7 +1463,7 @@
       pauseBackgroundMusic();
     });
   };
-
+  
   initMusicToggleControls();
   if (!musicToggleButton || !musicToggleIcon) {
     window.addEventListener("DOMContentLoaded", initMusicToggleControls, { once: true });
