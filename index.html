@@ -732,8 +732,15 @@
 <input class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body placeholder:text-outline-variant/50" name="ho_ten" placeholder="Nguyễn Văn A" required type="text" data-i18n-placeholder="rsvp.namePlaceholder"/>
 </div>
 <div>
+<label class="block text-[10px] uppercase tracking-widest text-outline mb-2" data-i18n="rsvp.attendanceLabel">Bạn có tham dự không?</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body" name="tham_du" required>
+<option value="co" data-i18n="rsvp.attendanceYes">Có, mình sẽ tham dự</option>
+<option value="khong" data-i18n="rsvp.attendanceNo">Không, mình xin phép vắng mặt</option>
+</select>
+</div>
+<div id="guest-count-group">
 <label class="block text-[10px] uppercase tracking-widest text-outline mb-2" data-i18n="rsvp.guestCountLabel">Số người tham dự</label>
-<select class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body" name="so_nguoi_tham_du" required>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary transition-colors py-3 px-0 font-body" name="so_nguoi_tham_du">
 <option data-i18n="rsvp.guestOne">1 người</option>
 <option data-i18n="rsvp.guestTwo">2 người</option>
 <option data-i18n="rsvp.guestFamily">Cả gia đình</option>
@@ -957,6 +964,9 @@
       "rsvp.replyBy": "Vui lòng phản hồi trước ngày 01/05/2026",
       "rsvp.nameLabel": "Họ và Tên",
       "rsvp.namePlaceholder": "Nguyễn Văn A",
+      "rsvp.attendanceLabel": "Bạn có tham dự không?",
+      "rsvp.attendanceYes": "Có, mình sẽ tham dự",
+      "rsvp.attendanceNo": "Không, mình xin phép vắng mặt",
       "rsvp.guestCountLabel": "Số người tham dự",
       "rsvp.guestOne": "1 người",
       "rsvp.guestTwo": "2 người",
@@ -1058,6 +1068,9 @@
       "rsvp.replyBy": "Please respond before May 01 2026",
       "rsvp.nameLabel": "Full Name",
       "rsvp.namePlaceholder": "John Doe",
+      "rsvp.attendanceLabel": "Will you attend?",
+      "rsvp.attendanceYes": "Yes, I will attend",
+      "rsvp.attendanceNo": "No, I cannot attend",
       "rsvp.guestCountLabel": "Number of Guests",
       "rsvp.guestOne": "1 guest",
       "rsvp.guestTwo": "2 guests",
@@ -1291,7 +1304,17 @@
   const rsvpMessage = document.getElementById("rsvp-message");
   const submitButton = rsvpForm?.querySelector('button[type="submit"]');
   const wishTextarea = rsvpForm?.querySelector('textarea[name="loi_chuc"]');
+  const attendanceSelect = rsvpForm?.querySelector('select[name="tham_du"]');
+  const guestCountGroup = rsvpForm?.querySelector("#guest-count-group");
+  const guestCountSelect = rsvpForm?.querySelector('select[name="so_nguoi_tham_du"]');
   const rsvpStorageKey = "wedding_wish_submitted";
+
+  const syncAttendanceFields = () => {
+    if (!attendanceSelect || !guestCountGroup || !guestCountSelect) return;
+    const isAttending = attendanceSelect.value === "co";
+    guestCountGroup.classList.toggle("hidden", !isAttending);
+    guestCountSelect.required = isAttending;
+  };
 
   const syncWishSubmitButton = () => {
     if (!submitButton || !wishTextarea) return;
@@ -1301,6 +1324,11 @@
   if (wishTextarea && submitButton) {
     syncWishSubmitButton();
     wishTextarea.addEventListener("input", syncWishSubmitButton);
+  }
+
+  if (attendanceSelect && guestCountGroup && guestCountSelect) {
+    syncAttendanceFields();
+    attendanceSelect.addEventListener("change", syncAttendanceFields);
   }
 
   const showRsvpSuccessMessage = () => {
@@ -1388,6 +1416,7 @@
       } finally {
         rsvpMessage.classList.remove("hidden");
         submitButton.textContent = originalLabel || t("rsvp.submit");
+        syncAttendanceFields();
         syncWishSubmitButton();
       }
     });
